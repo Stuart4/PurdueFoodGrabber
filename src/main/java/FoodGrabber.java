@@ -29,11 +29,11 @@ public class FoodGrabber {
 				meal.setServing(true);
 				meal.setHours(hours.text());
 			}
-			Elements mealLocations = meals.select("th.station-name");
+			Elements mealLocations = mealElement.select("th.station-name");
 			for (Element mealLocationElement : mealLocations) {
 				MealLocation mealLocation = new MealLocation();
 				mealLocation.setName(mealLocationElement.text());
-				Elements menuItems = mealLocations.select("tr.menu-item");
+				Elements menuItems = mealLocationElement.select("tr.menu-item");
 				for (Element menuItemElement : menuItems) {
 					MenuItem menuItem = new MenuItem();
 					if (menuItemElement.select("td.veg").isEmpty()){
