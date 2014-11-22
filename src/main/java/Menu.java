@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * Created by jake on 11/22/14.
+ * Created by Jacob Stuart on 11/22/14.
  */
 public class Menu {
 	private ArrayList<Meal> meals = new ArrayList<Meal>();

@@ -8,7 +8,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Created by jake on 11/22/14.
+ * Created by Jacob Stuart on 11/22/14.
  */
 public class FoodGrabber {
 	Document doc;
