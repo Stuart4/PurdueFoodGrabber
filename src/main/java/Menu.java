@@ -19,10 +19,10 @@ class Meal {
 	private String name;
 	private boolean isServing;
 	private String hours;
-	private ArrayList<MealLocation> mealLocations = new ArrayList<MealLocation>();
+	private ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
 
-	public void add(MealLocation location) {
-		mealLocations.add(location);
+	public void add(MenuItem menuItem) {
+		menuItems.add(menuItem);
 	}
 
 	public void setHours (String hours) {
@@ -51,22 +51,6 @@ class Meal {
 
 	public String getHours() {
 		return hours;
-	}
-
-	public MealLocation[] getMealLocations() {
-		return mealLocations.toArray(new MealLocation[mealLocations.size()]);
-	}
-}
-class MealLocation {
-	private String name;
-	private LinkedList<MenuItem> menuItems = new LinkedList<MenuItem>();
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void add(MenuItem item) {
-		menuItems.add(item);
 	}
 
 	public MenuItem[] getMenuItems() {

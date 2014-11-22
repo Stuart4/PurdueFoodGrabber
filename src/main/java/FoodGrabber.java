@@ -12,7 +12,8 @@ import java.util.ArrayList;
  */
 public class FoodGrabber {
 	Document doc;
-	public FoodGrabber(URL url) throws IOException{
+
+	public FoodGrabber(URL url) throws IOException {
 		doc = Jsoup.connect(url.toString()).get();
 	}
 
@@ -29,22 +30,16 @@ public class FoodGrabber {
 				meal.setServing(true);
 				meal.setHours(hours.text());
 			}
-			Elements mealLocations = mealElement.select("th.station-name");
-			for (Element mealLocationElement : mealLocations) {
-				MealLocation mealLocation = new MealLocation();
-				mealLocation.setName(mealLocationElement.text());
-				Elements menuItems = mealLocationElement.select("tr.menu-item");
-				for (Element menuItemElement : menuItems) {
-					MenuItem menuItem = new MenuItem();
-					if (menuItemElement.select("td.veg").isEmpty()){
-						menuItem.setVegetarian(false);
-					} else {
-						menuItem.setVegetarian(true);
-					}
-					menuItem.setName(menuItemElement.text());
-					mealLocation.add(menuItem);
+			Elements menuItems = mealElement.select("tr.menu-item");
+			for (Element menuItemElement : menuItems) {
+				MenuItem menuItem = new MenuItem();
+				if (menuItemElement.select("td.veg").isEmpty()) {
+					menuItem.setVegetarian(false);
+				} else {
+					menuItem.setVegetarian(true);
 				}
-				meal.add(mealLocation);
+				menuItem.setName(menuItemElement.text());
+				meal.add(menuItem);
 			}
 			menu.add(meal);
 		}
