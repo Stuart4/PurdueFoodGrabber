@@ -6,6 +6,7 @@ import java.util.LinkedList;
  */
 public class Menu {
 	private ArrayList<Meal> meals = new ArrayList<Meal>();
+	private String menuNote;
 
 	public void add(Meal meal) {
 		meals.add(meal);
@@ -13,6 +14,14 @@ public class Menu {
 
 	public Meal[] getMeals() {
 		return meals.toArray(new Meal[meals.size()]);
+	}
+
+	public String getMenuNote() {
+		return menuNote;
+	}
+
+	public void setMenuNote(String menuNote) {
+		this.menuNote = menuNote;
 	}
 }
 class Meal {

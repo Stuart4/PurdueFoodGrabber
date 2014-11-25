@@ -5,7 +5,6 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 
 /**
  * Created by Jacob Stuart on 11/22/14.
@@ -19,6 +18,10 @@ public class FoodGrabber {
 
 	public Menu getFood() {
 		Menu menu = new Menu();
+		try {
+			String menuNotes = doc.select("div#menu-notes").first().text();
+			menu.setMenuNote(menuNotes);
+		} catch (NullPointerException ignore) {}
 		Elements meals = doc.select("div.location-meal-container");
 		for (Element mealElement : meals) {
 			Meal meal = new Meal();
