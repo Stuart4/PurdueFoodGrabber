@@ -21,7 +21,8 @@ public class FoodGrabber {
 		try {
 			String menuNotes = doc.select("div#menu-notes").first().text();
 			menu.setMenuNote(menuNotes);
-		} catch (NullPointerException ignore) {}
+		} catch (NullPointerException ignore) {
+		}
 		Elements meals = doc.select("div.location-meal-container");
 		for (Element mealElement : meals) {
 			Meal meal = new Meal();

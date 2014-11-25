@@ -23,6 +23,7 @@ public class Menu {
 		this.menuNote = menuNote;
 	}
 }
+
 class Meal {
 	private String name;
 	private boolean isServing;
@@ -33,11 +34,6 @@ class Meal {
 		menuItems.add(menuItem);
 	}
 
-	public void setHours (String hours) {
-		this.hours = hours;
-		isServing = true;
-	}
-
 	public void setServing(boolean serving) {
 		isServing = serving;
 		if (!serving) {
@@ -45,12 +41,12 @@ class Meal {
 		}
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public boolean getIsServing() {
@@ -61,6 +57,11 @@ class Meal {
 		return hours;
 	}
 
+	public void setHours(String hours) {
+		this.hours = hours;
+		isServing = true;
+	}
+
 	public MenuItem[] getMenuItems() {
 		return menuItems.toArray(new MenuItem[menuItems.size()]);
 	}
@@ -69,6 +70,7 @@ class Meal {
 		return name;
 	}
 }
+
 class MenuItem {
 	private String name;
 	private boolean isVegetarian;
@@ -77,16 +79,16 @@ class MenuItem {
 		isVegetarian = vegetarian;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public boolean getIsVegetarian() {
 		return isVegetarian;
 	}
 
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String toString() {
