@@ -56,6 +56,10 @@ class Meal {
 	public MenuItem[] getMenuItems() {
 		return menuItems.toArray(new MenuItem[menuItems.size()]);
 	}
+
+	public String toString() {
+		return name;
+	}
 }
 class MenuItem {
 	private String name;
@@ -74,6 +78,10 @@ class MenuItem {
 	}
 
 	public String getName() {
+		return name;
+	}
+
+	public String toString() {
 		return name;
 	}
 }
