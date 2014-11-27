@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /*This file is part of PurdueFoodGrabber.
 
@@ -18,6 +19,15 @@ import java.util.ArrayList;
 public class Menu {
 	private ArrayList<Meal> meals = new ArrayList<Meal>();
 	private String menuNote;
+	private Calendar date;
+
+	public Menu() {
+		super();
+	}
+
+	public Menu (Calendar cal) {
+		this.date = cal;
+	}
 
 	public void add(Meal meal) {
 		meals.add(meal);
@@ -33,6 +43,10 @@ public class Menu {
 
 	public void setMenuNote(String menuNote) {
 		this.menuNote = menuNote;
+	}
+
+	public Calendar getDate() {
+		return date;
 	}
 }
 
