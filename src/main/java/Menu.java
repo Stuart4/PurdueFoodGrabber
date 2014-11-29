@@ -53,7 +53,7 @@ public class Menu {
 class Meal {
 	private String name;
 	private boolean isServing;
-	private String hours;
+	private String hours = "Not Serving";
 	private ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
 
 	public void add(MenuItem menuItem) {
