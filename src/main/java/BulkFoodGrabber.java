@@ -51,7 +51,4 @@ public class BulkFoodGrabber {
 		return menus;
 	}
 
-	public static void main(String[] args) {
-		new BulkFoodGrabber().getMenus(1, 1);
-	}
 }
