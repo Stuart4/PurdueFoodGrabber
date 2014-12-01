@@ -5,6 +5,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Calendar;
 
 /*This file is part of PurdueFoodGrabber.
 
@@ -21,14 +22,24 @@ import java.net.URL;
 		You should have received a copy of the GNU General Public License
 		along with PurdueFoodGrabber.  If not, see <http://www.gnu.org/licenses/>. */
 public class FoodGrabber {
-	Document doc;
+	private Document doc;
+	private Calendar cal;
 
 	public FoodGrabber(URL url) throws IOException {
 		doc = Jsoup.connect(url.toString()).get();
 	}
 
+	public FoodGrabber(URL url, Calendar cal) throws IOException {
+		doc = Jsoup.connect(url.toString()).get();
+	}
+
 	public Menu getFood() {
-		Menu menu = new Menu();
+		Menu menu = null;
+		if (cal == null) {
+			menu = new Menu();
+		} else {
+			menu = new Menu(cal);
+		}
 
 		try {
 			String menuName = doc.select("a.selected").first().text();
