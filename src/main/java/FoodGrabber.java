@@ -21,15 +21,17 @@ import java.util.Calendar;
 
 		You should have received a copy of the GNU General Public License
 		along with PurdueFoodGrabber.  If not, see <http://www.gnu.org/licenses/>. */
+
 public class FoodGrabber {
 	private Document doc;
-	private Calendar cal;
+	private Calendar cal = Calendar.getInstance();
 
 	public FoodGrabber(URL url) throws IOException {
 		doc = Jsoup.connect(url.toString()).get();
 	}
 
 	public FoodGrabber(URL url, Calendar cal) throws IOException {
+		this.cal = cal;
 		doc = Jsoup.connect(url.toString()).get();
 	}
 
@@ -50,6 +52,8 @@ public class FoodGrabber {
 			String menuNotes = doc.select("div#menu-notes").first().text();
 			menu.setMenuNote(menuNotes);
 		} catch (NullPointerException ignore) {}
+
+		menu.setDate(cal);
 
 		Elements meals = doc.select("div.location-meal-container");
 		for (Element mealElement : meals) {

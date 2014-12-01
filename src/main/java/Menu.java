@@ -50,6 +50,10 @@ public class Menu {
 		return date;
 	}
 
+	public void setDate(Calendar date) {
+		this.date = date;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
