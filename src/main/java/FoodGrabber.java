@@ -29,11 +29,17 @@ public class FoodGrabber {
 
 	public Menu getFood() {
 		Menu menu = new Menu();
+
+		try {
+			String menuName = doc.select("a.selected").first().text();
+			menu.setName(menuName);
+		} catch (NullPointerException ignore) {}
+
 		try {
 			String menuNotes = doc.select("div#menu-notes").first().text();
 			menu.setMenuNote(menuNotes);
-		} catch (NullPointerException ignore) {
-		}
+		} catch (NullPointerException ignore) {}
+
 		Elements meals = doc.select("div.location-meal-container");
 		for (Element mealElement : meals) {
 			Meal meal = new Meal();
@@ -46,6 +52,7 @@ public class FoodGrabber {
 				meal.setHours(hours.text());
 			}
 			Elements menuItems = mealElement.select("tr.menu-item");
+
 			for (Element menuItemElement : menuItems) {
 				MenuItem menuItem = new MenuItem();
 				if (menuItemElement.select("td.veg").isEmpty()) {

@@ -19,6 +19,7 @@ import java.util.Calendar;
 public class Menu {
 	private ArrayList<Meal> meals = new ArrayList<Meal>();
 	private String menuNote;
+	private String name;
 	private Calendar date;
 
 	public Menu() {
@@ -47,6 +48,14 @@ public class Menu {
 
 	public Calendar getDate() {
 		return date;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
 	}
 }
 
